@@ -21,9 +21,9 @@ public class Boss{
     }
 
     //魔法攻撃用の関数
-    public void Magic( int mana){
+    public void Magic( int mana ){
 
-        for ( int i = mp; i > 0; i-=mana) {
+        
             //  MPが５以上だった場合の処理
             if (mp >= 5) {
 
@@ -35,8 +35,8 @@ public class Boss{
             } else {    //  それ以外の場合
                 Debug.Log("MPが足りないため、魔法が使えない。");
             }
-        }
 
+        //return mp;
     }
 }
 
@@ -44,6 +44,21 @@ public class ScriptTest : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+        //  配列を初期化する
+        int[] array = { 25, 40, 800, 27, 75 };
+
+        //  配列の要素を順番に表示する
+        for(int i = 0; i < array.Length; i++){
+            Debug.Log(array[i]);
+        }
+
+        //  配列の要素を逆の順番で表示する
+        for(int j= 4; j > -1; j--){
+            Debug.Log(array[j]);
+        }
+
+
         //  Bossクラスの変数を宣言してインスタンスを代入
         Boss lastboss = new Boss();
 
@@ -54,9 +69,13 @@ public class ScriptTest : MonoBehaviour {
         lastboss.Defence(3);
 
         //  魔法攻撃用の関数を呼び出す
-        lastboss.Magic(5);
+        for (int i = 0; i < 11; i++){
+            lastboss.Magic(5);
+        }
+        
+        
 
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
